@@ -1,4 +1,4 @@
 ud120-projects
 ==============
 
-Code for ud120 for me
+Code for ud120.
