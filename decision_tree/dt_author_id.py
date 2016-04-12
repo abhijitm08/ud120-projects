@@ -20,12 +20,25 @@ from email_preprocess import preprocess
 features_train, features_test, labels_train, labels_test = preprocess()
 
 
-
-
-#########################################################
-### your code goes here ###
-
+print len(features_test[0])
+print features_test.shape
 
 #########################################################
+## your code goes here ###
+from sklearn.tree import DecisionTreeClassifier
+clf = DecisionTreeClassifier(min_samples_split=40)
+t0 = time()
+clf.fit(features_train, labels_train)
+t1 = time()
+pred = clf.predict(features_test)
+t2 = time()
+print "Time taken to train", t1-t0
+print "Time taken to predict", t2-t1
+print "Time taken to overall", t2-t0
+
+from sklearn.metrics import accuracy_score
+acc = accuracy_score(pred, labels_test)
+print acc
+########################################################
 
 
